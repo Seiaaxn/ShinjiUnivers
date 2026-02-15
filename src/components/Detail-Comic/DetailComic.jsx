@@ -242,7 +242,8 @@ const DetailComic = () => {
                                     loading="eager"
                                     decoding="async"
                                     fetchpriority="high"
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover object-top"
+                                    style={{ objectFit: 'cover', objectPosition: 'top center' }}
                                 />
                                 {/* Gradient Overlays */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
@@ -358,5 +359,4 @@ const DetailComic = () => {
                     {recommendations.length > 0 && (
                         <div className="lg:w-1/3">
                             <div className="sticky top-20">
-                                <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-6">
-             
+                                <div className="bg-white/50 dark:bg-gray-8
