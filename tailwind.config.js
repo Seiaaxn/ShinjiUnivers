@@ -8,7 +8,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Playpen Sans', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
       },
       colors: {
         'theme-bg-primary': 'rgb(var(--bg-primary) / <alpha-value>)',
@@ -22,10 +23,7 @@ export default {
     },
   },
   plugins: [],
-  // Optimize for production
   future: {
     hoverOnlyWhenSupported: true,
   },
-  // Remove unused styles
-  safelist: [],
 }
