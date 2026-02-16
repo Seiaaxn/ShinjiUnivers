@@ -103,4 +103,4 @@ const CardTerbaruComic = () => {
 }
 
 export default CardTerbaruComic
-                     
+                
