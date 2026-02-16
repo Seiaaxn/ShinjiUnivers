@@ -242,8 +242,7 @@ const DetailComic = () => {
                                     loading="eager"
                                     decoding="async"
                                     fetchpriority="high"
-                                    className="w-full h-full object-cover object-top"
-                                    style={{ objectFit: 'cover', objectPosition: 'top center' }}
+                                    className="w-full h-full object-cover"
                                 />
                                 {/* Gradient Overlays */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/30"></div>
@@ -359,4 +358,60 @@ const DetailComic = () => {
                     {recommendations.length > 0 && (
                         <div className="lg:w-1/3">
                             <div className="sticky top-20">
-                                <div className="bg-white/50 dark:bg-gray-8
+                                <div className="bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl p-6">
+                                    <div className="flex items-center gap-2 mb-6">
+                                        <FontAwesomeIcon icon={faFire} className="text-orange-600 dark:text-orange-400 text-xl" />
+                                        <h2 className="text-2xl font-bold">Rekomendasi</h2>
+                                    </div>
+                                    <div className="space-y-4">
+                                        {recommendations.map((item, index) => (
+                                            <div
+                                                key={index}
+                                                className="group relative bg-gradient-to-b from-gray-100 to-gray-50 dark:from-gray-800/50 dark:to-gray-900/50 rounded-xl overflow-hidden cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-indigo-500/20 hover:-translate-y-1 border border-gray-200 dark:border-gray-700"
+                                                onClick={() => handleRecommendationDetail(item)}
+                                            >
+                                                <div className="flex gap-3">
+                                                    <div className="relative w-24 h-32 flex-shrink-0">
+                                                        <img
+                                                            src={item.image}
+                                                            alt={item.title}
+                                                            width="96"
+                                                            height="128"
+                                                            loading="lazy"
+                                                            decoding="async"
+                                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                                            onError={(e) => {
+                                                                e.target.src = 'https://via.placeholder.com/300x450?text=Rekomendasi'
+                                                            }}
+                                                        />
+                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                                    </div>
+                                                    <div className="flex-1 p-3 min-w-0">
+                                                        <h3 className="font-bold text-sm line-clamp-2 text-gray-900 dark:text-gray-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors mb-2">
+                                                            {item.title}
+                                                        </h3>
+                                                        <div className="flex flex-wrap gap-2">
+                                                            <span className="text-xs px-2 py-1 bg-indigo-600/20 text-indigo-600 dark:text-indigo-400 rounded-full font-semibold">
+                                                                Ch {item.chapter.split(' ').pop()}
+                                                            </span>
+                                                            <span className="text-xs px-2 py-1 bg-yellow-600/20 text-yellow-600 dark:text-yellow-400 rounded-full font-semibold flex items-center gap-1">
+                                                                <FontAwesomeIcon icon={faStar} className="text-[10px]" />
+                                                                {item.popularity}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+export default DetailComic
