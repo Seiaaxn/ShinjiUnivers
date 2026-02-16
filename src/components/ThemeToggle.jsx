@@ -9,33 +9,16 @@ const ThemeToggle = () => {
     return (
         <button
             onClick={toggleTheme}
-            className="relative p-2 rounded-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-zinc-700 rounded-lg hover:bg-zinc-100 dark:text-zinc-200 dark:hover:bg-zinc-700 transition-colors"
             aria-label="Toggle theme"
         >
-            <div className="relative w-6 h-6">
-                {/* Sun Icon */}
-                <FontAwesomeIcon
-                    icon={faSun}
-                    className={`absolute inset-0 transition-all duration-300 ${
-                        theme === 'light'
-                            ? 'opacity-100 rotate-0 scale-100'
-                            : 'opacity-0 rotate-90 scale-0'
-                    }`}
-                />
-                {/* Moon Icon */}
-                <FontAwesomeIcon
-                    icon={faMoon}
-                    className={`absolute inset-0 transition-all duration-300 ${
-                        theme === 'dark'
-                            ? 'opacity-100 rotate-0 scale-100'
-                            : 'opacity-0 -rotate-90 scale-0'
-                    }`}
-                />
-            </div>
+            {theme === 'dark' ? (
+                <FontAwesomeIcon icon={faMoon} className="w-4 h-4 text-amber-400" />
+            ) : (
+                <FontAwesomeIcon icon={faSun} className="w-4 h-4 text-amber-500" />
+            )}
         </button>
     )
 }
 
 export default ThemeToggle
-
-                  
