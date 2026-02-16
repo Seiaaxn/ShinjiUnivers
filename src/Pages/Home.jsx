@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookOpen } from '@fortawesome/free-solid-svg-icons'
+import { faBookOpen, faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import SearchComic from '../components/Home/SearchComic'
 import CardTerbaruComic from '../components/Home/CardTerbaruComic'
 import CardTrendingComic from '../components/Home/CardTrendingComic'
@@ -16,108 +16,61 @@ const Home = () => {
         keywords="komik indonesia, baca komik gratis, komik online, manga indonesia, manhwa indonesia"
         url="https://juju-manhwa-2-0.vercel.app/"
       />
-      <div className="relative bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 dark:from-[#0a0a0a] dark:via-[#121212] dark:to-[#1a1a1a] min-h-screen text-gray-900 dark:text-gray-100 transition-colors">
-      {/* Background decorative elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 right-1/3 w-96 h-96 bg-pink-600/10 rounded-full blur-3xl"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Hero Section with Search */}
-        <div className="pt-8 pb-4">
+      <div className="relative bg-zinc-100 dark:bg-zinc-950 min-h-screen text-zinc-900 dark:text-zinc-50">
+        {/* Content */}
+        <div className="max-w-screen-xl mx-auto px-3 pt-4 pb-8">
+          {/* Hero Search */}
           <SearchComic />
-        </div>
 
-        {/* Terbaru Section */}
-        <div className="pb-6">
-          <CardTerbaruComic />
-        </div>
-
-        {/* Trending Section */}
-        <div className="pb-6">
-          <CardTrendingComic />
-        </div>
-
-        {/* Quick Links Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Jelajahi Lebih Banyak
-              </span>
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400">
-              Temukan koleksi komik lengkap di pustaka kami
-            </p>
+          {/* Terbaru Section */}
+          <div className="mt-6">
+            <CardTerbaruComic />
           </div>
 
-          <div className="flex justify-center">
-            <Link
-              to="/pustaka"
-              className="group relative"
-            >
-              <div className="relative overflow-hidden rounded-2xl border border-gray-300 dark:border-gray-700 bg-white/80 dark:bg-gradient-to-b dark:from-gray-800 dark:to-gray-900 backdrop-blur-sm hover:border-blue-500/50 transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 max-w-md">
-                {/* Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-cyan-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          {/* Trending Section */}
+          <div className="mt-8">
+            <CardTrendingComic />
+          </div>
 
-                {/* Content */}
-                <div className="relative p-8">
-                  {/* Icon */}
-                  <div className="mb-6 flex justify-center">
-                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      <FontAwesomeIcon icon={faBookOpen} className="text-3xl text-white" />
-                    </div>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-2xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center">
-                    Pustaka Komik
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-600 dark:text-gray-400 mb-6 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors text-center">
-                    Jelajahi koleksi lengkap pustaka komik dengan ribuan judul
-                  </p>
-
-                  {/* Arrow */}
-                  <div className="flex items-center justify-center text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-white transition-colors">
-                    <span className="text-sm font-semibold mr-2">Lihat Semua</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
+          {/* Pustaka CTA */}
+          <div className="mt-10 border border-zinc-200 dark:border-zinc-800 rounded-lg bg-white dark:bg-zinc-900 p-6">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center shrink-0">
+                  <FontAwesomeIcon icon={faBookOpen} className="text-white text-lg" />
                 </div>
-
-                {/* Bottom Accent */}
-                <div className="h-1 bg-gradient-to-r from-blue-600 to-cyan-600"></div>
+                <div>
+                  <h2 className="font-bold text-zinc-900 dark:text-zinc-100 text-lg">Pustaka Komik</h2>
+                  <p className="text-sm text-zinc-500 dark:text-zinc-400">Jelajahi koleksi lengkap ribuan judul komik</p>
+                </div>
               </div>
-            </Link>
+              <Link
+                to="/pustaka"
+                className="flex items-center gap-2 text-white bg-amber-700 hover:bg-amber-800 font-medium rounded-lg text-sm px-4 py-2.5 transition-colors whitespace-nowrap"
+              >
+                Lihat Semua
+                <FontAwesomeIcon icon={faArrowRight} className="w-3.5 h-3.5" />
+              </Link>
+            </div>
           </div>
         </div>
 
         {/* Footer */}
-        <footer className="mt-12 pb-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="border-t border-gray-300 dark:border-gray-700 pt-8">
-              <div className="text-center">
-                <p className="text-gray-600 dark:text-gray-400 text-sm">
-                  ShinVerse - Platform baca komik online terbaik
-                </p>
-                <p className="text-gray-500 dark:text-gray-500 text-xs mt-2">
-                  &copy; 2024 ShinVerse. All rights reserved.
-                </p>
-              </div>
+        <footer className="bg-white dark:bg-zinc-900 border-t border-zinc-200 dark:border-zinc-800 mt-8">
+          <div className="max-w-screen-xl mx-auto px-3 py-8">
+            <div className="sm:flex sm:items-center sm:justify-between">
+              <span className="text-sm text-zinc-500 dark:text-zinc-400">
+                © {new Date().getFullYear()} <strong>ShinVerse™</strong>. All Rights Reserved.
+              </span>
+              <p className="text-xs text-zinc-400 dark:text-zinc-500 mt-2 sm:mt-0">
+                Platform baca komik online terbaik
+              </p>
             </div>
           </div>
         </footer>
       </div>
-    </div>
     </>
   )
 }
 
 export default Home
-                        
