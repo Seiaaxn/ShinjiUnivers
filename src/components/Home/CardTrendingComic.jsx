@@ -112,4 +112,3 @@ const CardTrendingComic = () => {
 }
 
 export default CardTrendingComic
-              
