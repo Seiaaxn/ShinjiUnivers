@@ -131,4 +131,4 @@ const SearchComic = () => {
 }
 
 export default SearchComic
-                                            
+                            
